@@ -9,6 +9,7 @@ console.log(__dirname);
 console.log(path.join(__dirname, '../public'));
 
 const app = express();
+const port = process.env.PORT || 3000;   // Use PORT environment variable on Heroku or port 3000 locally
 
 // Define paths for Express config
 const publicDirectoryPath = path.join(__dirname, '../public');  // Configure directory to serve assets from
@@ -105,7 +106,7 @@ app.get('*', (req, res) => {
 });
 
 
-app.listen(3000, () => {
-  console.log('Server is up on port 3000.');
+app.listen(port, () => {
+  console.log(`Server is up on port ${port}.`);
   
 });
